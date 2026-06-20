@@ -1,0 +1,16 @@
+name: CI Pipeline
+
+on:
+  push: ["main", "develop"]
+  pull_request: ["main", "develop"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Printing values
+        run: echo Code checkout completed for ${{ github.ref }}
+
