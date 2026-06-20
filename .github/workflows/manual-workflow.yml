@@ -1,0 +1,25 @@
+name: Manual CI Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to run tests against"
+        type: environment
+        default: dev
+        required: false
+      version:
+        description: "Version to build"
+        type: string
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Printing env values
+        run: |
+          echo Environment: ${{ input.environment }}
+          echo Version: ${{ input.version }}
+
