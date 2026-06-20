@@ -1,8 +1,10 @@
 name: CI Pipeline
 
 on:
-  push: ["main", "develop"]
-  pull_request: ["main", "develop"]
+  push:
+    branches: ["main", "develop"]
+  pull_request:
+    branches: ["main", "develop"]
 
 jobs:
   build:
@@ -13,4 +15,5 @@ jobs:
 
       - name: Printing values
         run: echo Code checkout completed for ${{ github.ref }}
+
 
