@@ -1,0 +1,23 @@
+name: Conditional CI Pipeline
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        run: echo Building code...
+
+  test:
+    if: startsWith(github.ref, 'refs/heads/feature/') && success()
+
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Test
+        run: echo Testing code...
+
