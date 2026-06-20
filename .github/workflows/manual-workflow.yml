@@ -20,6 +20,6 @@ jobs:
     steps:
       - name: Printing env values
         run: |
-          echo Environment: ${{ input.environment }}
-          echo Version: ${{ input.version }}
+          echo Environment: ${{ inputs.environment }}
+          echo Version: ${{ inputs.version }}
 
